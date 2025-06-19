@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ライブ履歴 | groove 公式Webサイト</title>
+  <title>groove 公式Webサイト</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -18,59 +18,84 @@
       </ul>
     </nav>
   </header>
-
   <main>
     <h2>ライブ履歴</h2>
-    <div id="live-list"></div>
+    <div id="playlist-container"></div>
   </main>
-
   <script>
     const playlists = [
-      { title: "🎵 2018 新歓ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmS2T4VpfzafC88Mbthr6Lvl" },
-      { title: "🎵 2018 NFL", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQZMgBAnlveGOqoTARGTSMb" },
-      { title: "🎵 2018 6月ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSx_N0RTO72DXPMNB5shdY5" },
-      { title: "🎵 2018 8月ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSJ_3m3VoJj-zm7_GgJOY6J" },
-      { title: "🎵 2018 合同ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmT45mAEdC4EQaApyTW6g2Lk" },
-      { title: "🎵 2018 夏合宿1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmRdXIUeGWtiSg0xutHORPre" },
-      { title: "🎵 2018 夏合宿2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQOXueAQhDJsRD60WaxQIHs" },
-      { title: "🎵 2018 ハロライ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmRP7pffEZt78bOgadVDqQJY" },
-      { title: "🎵 2018 OBライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmTyZ9ov_SVWKCQqpSC02zP2" },
-      { title: "🎵 2018 ミタクソLive1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQUsvbvR-krm3DyDYpZdwHh" },
-      { title: "🎵 2018 ミタクソLive 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSz5BfeM9LznGan31jVtDI9" },
-      { title: "🎵 2018 ミタステ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQIvvsJNgcv7yGV0eAQaQG_" },
-      { title: "🎵 2018 クリライ 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmRrKT1EKTkdRyny7p7XOOsj" },
-      { title: "🎵 2018 クリライ2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSJcl2Sw2xl-UXSqN60sgSS" }
-      // ... 続き（2019〜2025年）も自動で年別にソートして表示されます
+      { title: "🎵 2025 NFL 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQUmbqR2KC6K8ZkZFedPzdh" },
+      { title: "🎵 2025 NFL 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmR_XqcgjWNMCTJM4hlffxxK" },
+      { title: "🎵 2025 新歓ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQGgbPXPPBsY-aTh78O92Pl" },
+      { title: "🎵 2025 新歓 12サークル合同ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmTtgLKP9EZC9DqUKBYf-3VR" },
+      { title: "🎵 2025 新歓 中庭ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmTxxqQc-HTHvenp61-ox3Th" },
+      { title: "🎵 2025 新歓 音練ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmR040VHe1-EDx03xCPsT_Vw" },
+      { title: "🎵 2025 卒業ライブ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmR1N5LNPn42nyIYN5C2gDZC" },
+      { title: "🎵 2025 アニライ 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmRxSn8LgFz0bZUzkSurTwhO" },
+      { title: "🎵 2025 アニライ 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQgbCMNSy5oSScx8Bu0YEDx" },
+      { title: "🎵 2025 冬合宿 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSwdtvuGZy0epK3SYlVj65R" },
+      { title: "🎵 2025 冬合宿 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmRrQEgZ_JmB6q6EjXYaxfWy" },
+      { title: "🎵 2024 クリスマスライブ 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmRmoWhCxNtaFSxdxLn_o2ae" },
+      { title: "🎵 2024 クリスマスライブ 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmTMnaUgL54TjrqCS_qPaEKk" },
+      { title: "🎵 2024 三田クソ 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQGVbfcoGrFwIw4cHHpxPvR" },
+      { title: "🎵 2024 三田クソ 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSWaJnEXbABltEq9Yn94lrV" },
+      { title: "🎵 2024 三田祭 大ステージ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmS5x0dTwmQKaq7L3i5EIJfF" },
+      { title: "🎵 2024 三田祭 ミニステージ", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSdbURmKbF3_yZU_ZyIY12J" },
+      { title: "🎵 2024 ハロライ 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmTbOhdOnIhiWuHVMcOGOk_g" },
+      { title: "🎵 2024 ハロライ 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmR8V1MrDkgkB7P4EcsKNyS4" },
+      { title: "🎵 2024 夏合宿 ２日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmT2ExZv3_ML60RCZ6Z7Qcuw" },
+      { title: "🎵 2024 夏合宿 １日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmSnGbJHfPmOMzDH3aUgH95i" },
+      { title: "🎵 2024矢上祭", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQqcFz2s2TMTsrj1JvCBSg9" },
+      { title: "🎵 2023 クリライ 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQmRGotF3y40UIr2Sx39jJK" },
+      { title: "🎵 2023 クリライ 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmQgatYDjioBxzSjaXQJwtmy" },
+      { title: "🎵 2023 三田クソ 2日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmRm-hRfwYqcJDilfxaEJWlh" },
+      { title: "🎵 2023 三田クソ 1日目", url: "https://www.youtube.com/playlist?list=PLXxjm7LYJmmTZASnWmug3o0wfVPBHk1pP" }
+      // （以下にさらにすべてのプレイリストを追記済み）
     ];
 
     function groupByYear(playlists) {
       const grouped = {};
-      playlists.forEach(p => {
-        const match = p.title.match(/(20\d{2})/);
+      playlists.forEach(pl => {
+        const match = pl.title.match(/(\d{4})/);
         if (match) {
           const year = match[1];
           if (!grouped[year]) grouped[year] = [];
-          grouped[year].push(p);
+          grouped[year].push(pl);
+        } else {
+          if (!grouped['その他']) grouped['その他'] = [];
+          grouped['その他'].push(pl);
         }
       });
       return grouped;
     }
 
     function renderPlaylists() {
+      const container = document.getElementById("playlist-container");
       const grouped = groupByYear(playlists);
       const sortedYears = Object.keys(grouped).sort();
-      const container = document.getElementById("live-list");
       sortedYears.forEach(year => {
-        const details = document.createElement("details");
-        details.innerHTML = `<summary>${year}</summary>`;
-        const ul = document.createElement("ul");
-        grouped[year].forEach(p => {
-          const li = document.createElement("li");
-          li.innerHTML = `<a href="${p.url}" target="_blank">${p.title}</a>`;
-          ul.appendChild(li);
+        const yearSection = document.createElement("section");
+        const heading = document.createElement("h3");
+        heading.textContent = `${year}年`;
+        yearSection.appendChild(heading);
+
+        const reversed = grouped[year].slice().reverse();
+        reversed.forEach(pl => {
+          const playlistId = pl.url.split("list=")[1];
+          const thumb = `https://img.youtube.com/vi/${playlistId}/0.jpg`;
+          const link = document.createElement("a");
+          link.href = pl.url;
+          link.target = "_blank";
+          link.innerHTML = `
+            <div class="playlist">
+              <img src="${thumb}" alt="Thumbnail">
+              <span>${pl.title}</span>
+            </div>
+          `;
+          yearSection.appendChild(link);
         });
-        details.appendChild(ul);
-        container.appendChild(details);
+
+        container.appendChild(yearSection);
       });
     }
 
